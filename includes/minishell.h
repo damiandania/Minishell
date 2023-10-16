@@ -6,7 +6,7 @@
 /*   By: ddania-c <ddania-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 17:22:00 by dania             #+#    #+#             */
-/*   Updated: 2023/10/16 11:02:43 by ddania-c         ###   ########.fr       */
+/*   Updated: 2023/10/16 11:54:53 by ddania-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 //INCLUDES____________________________________________________________
 
+# include "../libft/includes/libft.h"
 # include <unistd.h>
 # include <stdio.h>
 # include <limits.h>

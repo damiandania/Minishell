@@ -6,12 +6,17 @@
 /*   By: ddania-c <ddania-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 11:06:07 by ddania-c          #+#    #+#             */
-/*   Updated: 2023/10/16 11:18:18 by ddania-c         ###   ########.fr       */
+/*   Updated: 2023/10/16 11:57:29 by ddania-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../includes/minishell.h"
+
 int	main()
 {
-
+	while (1)
+	{
+		ft_printf("minishel> ");
+	}
 	return (0);
 }
