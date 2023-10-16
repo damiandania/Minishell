@@ -6,39 +6,37 @@
 #    By: ddania-c <ddania-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 17:05:48 by ddania-c          #+#    #+#              #
-#    Updated: 2023/10/16 11:24:27 by ddania-c         ###   ########.fr        #
+#    Updated: 2023/10/16 15:51:16 by ddania-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= minishell
 
-#INCLUDES____________________________________________________________
+#DIRECTORIES_________________________________________________________
 
-INC			= -I ./includes/
-
-#SOURCE______________________________________________________________
-
-SRC_DIR		= sources
-SRC_FILES	=	main.c
+READLINE_PATH = /usr/include/readline
+INC_DIR		=	includes/
+SRC_DIR		=	sources/
+SRC_FILES	=	main.c			\
 
 SRC := $(addprefix $(SRC_DIR)/, $(SRC_FILES))
+INC			=	-I $(INC_DIR) -I $(LIBFT_DIR)
 
 #OBJECT______________________________________________________________
 
-OBJ_DIR		=	obj
+OBJ_DIR		=	obj/
 OBJS		=	$(addprefix $(OBJ_DIR)/,$(notdir $(SRC:.c=.o)))
 
 #LIBFT_______________________________________________________________
 
-LIBFT_DIR = ./libft
-LIBFT_PATH = ${LIBFT_DIR}/libft.a
+LIBFT_DIR	=	libft
+LIBFT		=	libft/libft
 
 #FLAGS_______________________________________________________________
 
-CC		=	gcc
+CC		=	cc
 RM		=	rm -f
 CFLAGS	=	-Werror -Wextra -Wall
-LFLAGS:= -L $(LIBFT_DIR) -lft
 
 #COLORS______________________________________________________________
 
@@ -51,19 +49,23 @@ YELLOW 	=	\033[0;93m
 #MAIN_RULE___________________________________________________________
 
 all: $(NAME)
+
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(OBJ_DIR)
-	@$(CC) $(CFLAGS) $(INC) $(LFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 #OBJECT_RULE_________________________________________________________
 
 $(NAME): $(OBJS)
-#	@echo -n "Verifying	${WHITE}→	norminette"
-#	@if norminette | grep "Error" > /dev/null 2>&1; then echo "$(RED) [Error]✗$(RESET)"; else echo "$(GREEN) [ok]✓$(RESET)"; fi
 	@make -C ${LIBFT_DIR} --no-print-directory
 	@echo -n "$(YELLOW)Compiling	${WHITE}→	$(YELLOW)$(NAME)$(RESET) "
-	@$(CC) $(OBJS) -o $@
+	@$(CC) $(OBJS) $(CFLAGS) -o $@ $(INC) -L$(READLINE_PATH) -lreadline $(LIBFT)
 	@echo "$(GREEN)[ok]✓$(RESET)"
+
+#LIBFT_RULE__________________________________________________________
+
+$(LIBFT):
+	@make clean -C ${LIBFT_DIR} --no-print-directory
 
 #CLEAN_RULE__________________________________________________________
 

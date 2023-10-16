@@ -6,7 +6,7 @@
 /*   By: ddania-c <ddania-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 17:22:00 by dania             #+#    #+#             */
-/*   Updated: 2023/10/16 11:54:53 by ddania-c         ###   ########.fr       */
+/*   Updated: 2023/10/16 14:53:12 by ddania-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include <limits.h>
 # include <stdlib.h>
 # include <stdbool.h>
+# include <readline/readline.h>
+# include <readline/history.h>
 
 //MACROS______________________________________________________________
 
@@ -29,6 +31,10 @@
 
 //STRUCTURE___________________________________________________________
 
+typedef struct s_data
+{
+	char	*input;
+}		t_data;
 
 //FUNTIONS____________________________________________________________
 
