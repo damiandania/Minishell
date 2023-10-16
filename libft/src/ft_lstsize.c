@@ -1,17 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddania-c <ddania-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/16 11:06:07 by ddania-c          #+#    #+#             */
-/*   Updated: 2023/10/16 11:18:18 by ddania-c         ###   ########.fr       */
+/*   Created: 2022/11/29 18:49:57 by ddania-c          #+#    #+#             */
+/*   Updated: 2023/03/27 14:41:54 by ddania-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main()
-{
+// Cuenta cuantos nodos hay en la lista
 
-	return (0);
+#include "../includes/libft.h"
+
+int	ft_lstsize(t_list *lst)
+{
+	int	i;
+
+	i = 0;
+	while (lst != NULL)
+	{
+		i++;
+		lst = lst->next;
+	}
+	return (i);
 }

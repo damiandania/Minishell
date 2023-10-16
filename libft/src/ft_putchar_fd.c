@@ -1,17 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddania-c <ddania-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/16 11:06:07 by ddania-c          #+#    #+#             */
-/*   Updated: 2023/10/16 11:18:18 by ddania-c         ###   ########.fr       */
+/*   Created: 2022/11/25 19:13:57 by ddania-c          #+#    #+#             */
+/*   Updated: 2023/03/27 15:00:31 by ddania-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main()
-{
+// Imprime un char segun el formato de fd
 
-	return (0);
+#include "../includes/libft.h"
+
+void	ft_putchar_fd(char c, int fd)
+{
+	int	ret;
+
+	ret = write(fd, &c, 1);
+	if (ret == -1)
+	{
+		perror("write error");
+		exit(1);
+	}
 }

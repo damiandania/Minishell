@@ -1,17 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddania-c <ddania-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/16 11:06:07 by ddania-c          #+#    #+#             */
-/*   Updated: 2023/10/16 11:18:18 by ddania-c         ###   ########.fr       */
+/*   Created: 2022/11/29 20:21:51 by ddania-c          #+#    #+#             */
+/*   Updated: 2023/03/27 14:41:59 by ddania-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main()
-{
+// Aplica la funcion f a cada uno de los nodos
 
-	return (0);
+#include "../includes/libft.h"
+
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{
+	while (lst)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
 }
