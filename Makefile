@@ -6,7 +6,7 @@
 #    By: ddania-c <ddania-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 17:05:48 by ddania-c          #+#    #+#              #
-#    Updated: 2023/10/16 15:51:16 by ddania-c         ###   ########.fr        #
+#    Updated: 2023/10/16 15:58:28 by ddania-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME		= minishell
 
 #DIRECTORIES_________________________________________________________
 
-READLINE_PATH = /usr/include/readline
+READLINE_DIR=	usr/include/readline
 INC_DIR		=	includes/
 SRC_DIR		=	sources/
 SRC_FILES	=	main.c			\
@@ -24,7 +24,7 @@ INC			=	-I $(INC_DIR) -I $(LIBFT_DIR)
 
 #OBJECT______________________________________________________________
 
-OBJ_DIR		=	obj/
+OBJ_DIR		=	objects/
 OBJS		=	$(addprefix $(OBJ_DIR)/,$(notdir $(SRC:.c=.o)))
 
 #LIBFT_______________________________________________________________
@@ -59,7 +59,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 $(NAME): $(OBJS)
 	@make -C ${LIBFT_DIR} --no-print-directory
 	@echo -n "$(YELLOW)Compiling	${WHITE}→	$(YELLOW)$(NAME)$(RESET) "
-	@$(CC) $(OBJS) $(CFLAGS) -o $@ $(INC) -L$(READLINE_PATH) -lreadline $(LIBFT)
+	@$(CC) $(OBJS) $(CFLAGS) -o $@ $(INC) -L$(READLINE_DIR) -lreadline $(LIBFT)
 	@echo "$(GREEN)[ok]✓$(RESET)"
 
 #LIBFT_RULE__________________________________________________________
