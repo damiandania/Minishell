@@ -6,18 +6,20 @@
 bool	prompt(t_data *data)
 {
 	char	*line;
-	
+
 	(void)data;
-	
+
 	while (1)
 	{
 		line = readline("minishell$ ");
 		printf("line = %s\n", line);
 		if (line == NULL)
 			break ;
-		if (ft_lexer(data, line) == 1);
-			return (false);
+		ft_lexer(data, line);
+
 		free (line);
+		line = NULL;
+		data->token = NULL;
 	}
 	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: damian <damian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 17:22:00 by dania             #+#    #+#             */
-/*   Updated: 2023/10/17 22:37:06 by damian           ###   ########.fr       */
+/*   Updated: 2023/10/18 01:34:55 by damian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,14 @@
 
 enum e_type
 {
-	WORD,
+	WORD = 1,
 	SPACES,
 	PIPE,
 	LESS,
 	GREAT,
 	LESS_LESS,
 	GREAT_GREAT,
+	END,
 	VAR,
 };
 
@@ -47,7 +48,7 @@ enum e_quote
 {
 	N_QUOTE,
 	S_QUOTE,
-	D_QUOTE,
+	D_QUOTES,
 };
 
 typedef struct s_token
@@ -59,7 +60,7 @@ typedef struct s_token
 
 typedef struct s_data
 {
-	struct s_token	*list;
+	struct s_token	*token;
 }		t_data;
 
 //FUNTIONS____________________________________________________________
