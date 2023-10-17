@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ddania-c <ddania-c@student.42.fr>          +#+  +:+       +#+         #
+#    By: damian <damian@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 17:05:48 by ddania-c          #+#    #+#              #
-#    Updated: 2023/10/16 15:58:28 by ddania-c         ###   ########.fr        #
+#    Updated: 2023/10/17 22:32:57 by damian           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ READLINE_DIR=	usr/include/readline
 INC_DIR		=	includes/
 SRC_DIR		=	sources/
 SRC_FILES	=	main.c			\
+				lexer.C			\
 
 SRC := $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 INC			=	-I $(INC_DIR) -I $(LIBFT_DIR)

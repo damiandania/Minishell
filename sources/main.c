@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ddania-c <ddania-c@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/16 11:06:07 by ddania-c          #+#    #+#             */
-/*   Updated: 2023/10/16 16:24:17 by ddania-c         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "../includes/minishell.h"
 #include <readline/readline.h>
@@ -16,22 +5,27 @@
 
 bool	prompt(t_data *data)
 {
+	char	*line;
+	
+	(void)data;
+	
 	while (1)
 	{
-		data->input = readline("minishell$ ");
-		printf("input = %s\n", data->input);
-		if (data->input == NULL)
+		line = readline("minishell$ ");
+		printf("line = %s\n", line);
+		if (line == NULL)
 			break ;
-		free (data->input);
+		if (ft_lexer(data, line) == 1);
+			return (false);
+		free (line);
 	}
 	return (true);
 }
 
-int	main(int ac, char **av)
+int	main()
 {
 	t_data	data;
 
-	(void)av;
 	if(prompt(&data) == 0)
 			return (1);
 
