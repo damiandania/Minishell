@@ -31,7 +31,7 @@ bool	prompt(t_data *data)
 		data->token = NULL;
 		ft_lexer(data, line);
 		// ft_lexer_var(&data->token);
-		// ft_lexer_error(data);
+		ft_lexer_error(data->token);
 
 		ft_print_lexer(data);
 

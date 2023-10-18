@@ -6,7 +6,7 @@
 /*   By: ddania-c <ddania-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 17:22:00 by dania             #+#    #+#             */
-/*   Updated: 2023/10/18 15:06:40 by ddania-c         ###   ########.fr       */
+/*   Updated: 2023/10/18 15:31:58 by ddania-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,10 @@ void		ft_add_word(t_token **token, char *line, int i, int start);
 
 //	lexer_var
 void		ft_lexer_var(t_token **token);
+
+//	lexer_error
+void		ft_lexer_error(t_token *token);
+
 
 //	INIT
 
