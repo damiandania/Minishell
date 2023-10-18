@@ -15,6 +15,7 @@ bool	prompt(t_data *data)
 		printf("line = %s\n", line);
 		if (line == NULL)
 			break ;
+		data->token = NULL;
 		ft_lexer(data, line);
 
 		free (line);
@@ -33,3 +34,4 @@ int	main()
 
 	return (0);
 }
+

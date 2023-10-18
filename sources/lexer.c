@@ -51,8 +51,8 @@ void	ft_add_sep(t_token **token, char *line, int i, int len, int type)
 	index = 0;
 	str = malloc(sizeof(char) * len);
 	if (!str)
-		exit(1); //Look for a better exit way
-	while (index < len - 1)
+		return (ft_putstr_fd("error: malloc\n", 2)); //Look for a better exit way
+	while (index < (len - 1))
 	{
 		str[index] = line[i];
 		index++;
@@ -70,7 +70,7 @@ void	ft_add_word(t_token **token, char *line, int i, int start)
 	index = 0;
 	str = malloc(sizeof(char) * (i - start + 1));
 	if (!str)
-		return ; //Look for a better exit way
+		return (ft_putstr_fd("error: malloc\n", 2)); //Look for a better exit way
 	while (start < i)
 	{
 		str[index] = line[start];
@@ -87,18 +87,17 @@ int	ft_set_sep_type(char *line, int i)
 		return (SPACES);
 	else if (line[i] == '|')
 		return (PIPE);
-	else if (line[i] == '<')
-		return (LESS);
-	else if (line[i] == '>')
-		return (GREAT);
 	else if (line[i] == '<' && line[i + 1] == '<')
 		return (LESS_LESS);
 	else if (line[i] == '>' && line[i + 1] == '>')
 		return (GREAT_GREAT);
+	else if (line[i] == '<')
+		return (LESS);
+	else if (line[i] == '>')
+		return (GREAT);
 	else if (line[i] == '\0')
 		return (END);
-	else
-		return (0);
+	return (9);
 }
 
 int	ft_token(int *i, char *line, int start, t_data *data)
@@ -106,15 +105,14 @@ int	ft_token(int *i, char *line, int start, t_data *data)
 	int	sep_type;
 
 	sep_type = ft_set_sep_type(line, (*i));
-	if (sep_type)
+	if (sep_type != 9)
 	{
-		if ((*i) != 0 && ft_set_sep_type(line, (*i) - 1) == 0)
+		if ((*i) != 0 && ft_set_sep_type(line, (*i) - 1) == 9)
 			ft_add_word(&data->token, line, (*i), start);
-		if (sep_type == PIPE || sep_type == LESS || sep_type == GREAT
-			|| sep_type == LESS_LESS || sep_type == GREAT_GREAT
+		else if (sep_type == PIPE || sep_type == LESS || sep_type == GREAT
 			|| sep_type == END)
 			ft_add_sep(&data->token, line, (*i), 2,sep_type);
-		if (sep_type == LESS_LESS || sep_type == GREAT_GREAT)
+		else if (sep_type == LESS_LESS || sep_type == GREAT_GREAT)
 		{
 			ft_add_sep(&data->token, line, (*i), 3,sep_type);
 			(*i)++;
