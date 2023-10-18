@@ -16,7 +16,7 @@ static int	ft_set_sep_type(char *line, int i)
 		return (GREAT);
 	else if (line[i] == '\0')
 		return (END);
-	return (9);
+	return (0);
 }
 //
 static int	ft_token(int *i, char *line, int start, t_data *data)
@@ -24,9 +24,9 @@ static int	ft_token(int *i, char *line, int start, t_data *data)
 	int	sep_type;
 
 	sep_type = ft_set_sep_type(line, (*i));
-	if (sep_type != 9)
+	if (sep_type)
 	{
-		if ((*i) != 0 && ft_set_sep_type(line, (*i) - 1) == 9)
+		if ((*i) != 0 && ft_set_sep_type(line, (*i) - 1) == 0)
 			ft_add_word(&data->token, line, (*i), start);
 		if (sep_type == PIPE || sep_type == LESS || sep_type == GREAT
 			|| sep_type == END)

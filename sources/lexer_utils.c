@@ -19,10 +19,14 @@ static t_token	*ft_new_token(char *str, int type)
 
 	new = malloc(sizeof(t_token) * 1);
 	if (!(new))
+	{
+		ft_putstr_fd("error: malloc\n", 2);
 		return (NULL);
+	}
 	new->str = str;
 	new->type = type;
 	new->next = NULL;
+	new->prev = NULL;
 	return (new);
 }
 
@@ -40,6 +44,7 @@ static void	ft_lstadd_back_token(t_token **lst, t_token *new)
 		while (temp->next)
 			temp = temp->next;
 		temp->next = new;
+		new->prev = temp;
 	}
 }
 

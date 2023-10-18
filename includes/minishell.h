@@ -6,7 +6,7 @@
 /*   By: ddania-c <ddania-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 17:22:00 by dania             #+#    #+#             */
-/*   Updated: 2023/10/18 13:26:49 by ddania-c         ###   ########.fr       */
+/*   Updated: 2023/10/18 15:06:40 by ddania-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 
 enum e_type
 {
-	WORD,
+	WORD = 1,
 	SPACES,
 	PIPE,
 	LESS,
@@ -56,7 +56,9 @@ typedef struct s_token
 	enum e_type		type;
 	char			*str;
 	struct s_token	*next;
+	struct s_token	*prev;
 }		t_token;
+
 
 typedef struct s_data
 {
