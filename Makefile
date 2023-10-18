@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: damian <damian@student.42.fr>              +#+  +:+       +#+         #
+#    By: ddania-c <ddania-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 17:05:48 by ddania-c          #+#    #+#              #
-#    Updated: 2023/10/18 00:01:17 by damian           ###   ########.fr        #
+#    Updated: 2023/10/18 13:24:19 by ddania-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,12 @@ NAME		= minishell
 READLINE_DIR=	usr/include/readline
 INC_DIR		=	includes/
 SRC_DIR		=	sources/
-SRC_FILES	=	main.c			\
-				lexer.c			\
+SRC_FILES	=	main.c				\
+				lexer.c				\
+				lexer_utils.c		\
+				lexer_error.c		\
+				lexer_error_utils.c	\
+				lexer_var.c			\
 
 SRC := $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 INC			=	-I $(INC_DIR) -I $(LIBFT_DIR)

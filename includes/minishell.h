@@ -6,7 +6,7 @@
 /*   By: ddania-c <ddania-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 17:22:00 by dania             #+#    #+#             */
-/*   Updated: 2023/10/18 11:31:58 by ddania-c         ###   ########.fr       */
+/*   Updated: 2023/10/18 13:26:49 by ddania-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,16 @@ typedef struct s_data
 
 //FUNTIONS____________________________________________________________
 
-//	LEXER
-int	ft_lexer(t_data *data, char *line);
-int	set_status_quote(int quote, char *line, int i);
+//	lexer
+int			ft_lexer(t_data *data, char *line);
 
-//	UTILS
+// lexer_utils
+int			ft_set_status_quote(int quote, char *line, int i);
+void		ft_add_sep(t_token **token, char *line, int i, int len, int type);
+void		ft_add_word(t_token **token, char *line, int i, int start);
+
+//	lexer_var
+void		ft_lexer_var(t_token **token);
 
 //	INIT
 

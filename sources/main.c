@@ -3,6 +3,19 @@
 #include <readline/readline.h>
 #include <readline/history.h>
 
+void	ft_print_lexer(t_data *data)
+{
+	t_token	*current;
+
+	current = data->token;
+	while (current)
+	{
+		printf("[%u__%s__]", current->type, current->str);
+		current = current->next;
+	}
+	printf("\n");
+}
+
 bool	prompt(t_data *data)
 {
 	char	*line;
@@ -17,6 +30,10 @@ bool	prompt(t_data *data)
 			break ;
 		data->token = NULL;
 		ft_lexer(data, line);
+		ft_lexer_var(&data->token);
+		// ft_lexer_error(data);
+
+		ft_print_lexer(data);
 
 		free (line);
 		line = NULL;
