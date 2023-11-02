@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   pwd.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddania-c <ddania-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 15:30:20 by arincon           #+#    #+#             */
-/*   Updated: 2023/11/01 13:58:35 by ddania-c         ###   ########.fr       */
+/*   Created: 2023/09/18 10:21:28 by arincon           #+#    #+#             */
+/*   Updated: 2023/10/30 12:17:31 by ddania-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	g_last_status;
-
-int	main(int argc, char **argv, char **envp)
+void	ft_pwd(void)
 {
-	t_data				data;
+	char	buffer[PATH_MAX + 1];
 
-	(void)argv;
-	if (argc != 1)
-		return (1 && printf("this program works without arguments\n"));
-	ft_init(&data, envp);
-	ft_minishell(&data);
-	ft_close_and_free(&data);
-	return (0);
+	if (getcwd(buffer, PATH_MAX))
+		printf("%s\n", buffer);
+	else
+	{
+		ft_putstr_fd("Error: pwd: \n", 2);
+		g_last_status = 127;
+	}
+	g_last_status = 0;
 }
-// nm -Dgu ./minishell

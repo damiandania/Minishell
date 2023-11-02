@@ -1,0 +1,12 @@
+{
+    _fuck_readline_
+        Memcheck:Leak
+        ...
+        fun:readline
+    }
+    {
+    _fuck_add_history_
+        Memcheck:Leak
+        ...
+        fun:add_history
+}

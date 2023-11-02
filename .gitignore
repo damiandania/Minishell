@@ -1,5 +1,5 @@
 .vscode/
 minishell
-/obj/
+/objects/
 /libft/libft
 /libft/src/*.o
