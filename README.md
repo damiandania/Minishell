@@ -1,15 +1,52 @@
-# LESSON
+<p>
+<img src="https://github.com/damiandania/damiandania/blob/main/Pics/Minishell.png"
+    alt="Project pic" width="150" height="150"/>
+</p>
 
-[EXTERNAL FUNCTIONS](docs/lesson.md)
+# Minishell 🐚
 
-# MINISHELL SUBJECT
+**Minishell** is a simple shell implementation project. The goal is to create a minimalistic shell that can execute commands, handle pipes, redirections, and manage environment variables.
 
-![Image](img/en.subject_page-0001.jpg)
-![Image](img/en.subject_page-0002.jpg)
-![Image](img/en.subject_page-0003.jpg)
-![Image](img/en.subject_page-0004.jpg)
-![Image](img/en.subject_page-0005.jpg)
-![Image](img/en.subject_page-0006.jpg)
-![Image](img/en.subject_page-0007.jpg)
-![Image](img/en.subject_page-0008.jpg)
-![Image](img/en.subject_page-0009.jpg)
+## Features
+
+- **Command Execution:** Execute basic shell commands.
+- **Pipes and Redirections:** Handle pipes (`|`) and redirections (`<`, `>`).
+- **Environment Variables:** Manage and use environment variables.
+- **Built-in Commands:** Implement built-in commands like `cd`, `echo`, `env`, `exit`, etc.
+
+## Technologies Used
+
+- **C:** The shell is implemented in C.
+
+## Installation
+
+1. **Clone this repository:**
+    ```bash
+    git clone https://github.com/damiandania/Minishell.git
+    ```
+
+2. **Navigate to the project directory:**
+    ```bash
+    cd Minishell
+    ```
+
+3. **Build the project:**
+    ```bash
+    make
+    ```
+
+4. **Run the shell:**
+    ```bash
+    ./minishell
+    ```
+
+## Usage
+
+Once the shell is running, you can execute commands just like in a regular shell. For example:
+
+```sh
+$ ls -l
+$ echo "Hello, World!"
+$ export PATH=$PATH:/my/custom/path
+$ cd /path/to/directory
+$ exit
